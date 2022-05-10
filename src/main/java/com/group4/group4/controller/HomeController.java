@@ -1,10 +1,16 @@
 package com.group4.group4.controller;
 
+import com.group4.group4.jwt.JwtTokenProvider;
 import com.group4.group4.payload.request.LoginRequest;
 import com.group4.group4.payload.response.LoginResponse;
+import com.group4.group4.repository.IUserRepository;
+import com.group4.group4.service.UserDetailsImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,11 +20,24 @@ import java.util.stream.Collectors;
 
 @Controller
 public class HomeController {
+    @Autowired
+    AuthenticationManager authenticationManager;
+    @Autowired
+    JwtTokenProvider jwtTokenProvider;
+    @Autowired
+    IUserRepository iUserRepository;
+    @Autowired
+    PasswordEncoder passwordEncoder;
+    @Autowired
+    IRoleRepository iRoleRepository;
+    @Autowired
+    RefreshTokenService refreshTokenService;
+
     @PostMapping("/login")
     public LoginResponse getResponseAfterLogin(@RequestBody LoginRequest loginRequest){
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        loginRequest.getUsername(),
+                        loginRequest.getEmail(),
                         loginRequest.getPassword()
                 )
         );
