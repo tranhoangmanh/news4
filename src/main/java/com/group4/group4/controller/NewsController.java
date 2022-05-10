@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+/*@RestController
+@RequestMapping( "/news")*/
 @RestController
-@RequestMapping("/news")
+@RequestMapping(value = "/api/v2")
 public class NewsController {
     @Autowired
     private NewRepository newRepository;
@@ -21,12 +23,12 @@ public class NewsController {
         return new ResponseEntity<>(newRepository.save(newsEntity), HttpStatus.OK);
     }
     //get news
-    @GetMapping(value = "/getAll")
-    public ResponseEntity<Iterable<NewsEntity>> getAllNews() {
+    @GetMapping(value = "/getAllNew")
+    public ResponseEntity<List<NewsEntity>> getAllNews() {
         return new ResponseEntity<>(newRepository.findAll(), HttpStatus.OK);
     }
     //get detail news
-    @GetMapping("/{id}")
+    @GetMapping("detail/{id}")
     public ResponseEntity<NewsEntity> getNewsEntity(@PathVariable Long id) {
         Optional<NewsEntity> NewsEntityOptional = newRepository.findById(id);
         return NewsEntityOptional.map(NewsEntity -> new ResponseEntity<>(NewsEntity, HttpStatus.OK))
