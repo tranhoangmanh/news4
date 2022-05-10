@@ -5,6 +5,7 @@ import com.group4.group4.entity.RoleEntity;
 import com.group4.group4.entity.UserEntity;
 import com.group4.group4.jwt.JwtTokenProvider;
 import com.group4.group4.payload.request.LoginRequest;
+import com.group4.group4.payload.request.RegisterRequest;
 import com.group4.group4.payload.response.LoginResponse;
 import com.group4.group4.repository.IRoleRepository;
 import com.group4.group4.repository.IUserRepository;
@@ -61,13 +62,12 @@ public class HomeController {
     }
 
     @PostMapping("/register")
-    public String register(@RequestBody UserDTO userDTO){
+    public RegisterRequest register(@RequestBody RegisterRequest request){
         RoleEntity roleUser = iRoleRepository.getById(2L);
         List<RoleEntity> listRoleUser = new ArrayList<>();
         listRoleUser.add(roleUser);
-
-
-        return null;
+        iUserRepository.save(new UserEntity(null,request.getEmail(),passwordEncoder.encode(request.getPassword()),null,listRoleUser));
+        return request;
     }
 
     @GetMapping("/add")
