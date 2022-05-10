@@ -1,5 +1,6 @@
-package com.group4.group4.sevice;
+package com.group4.group4.service;
 
+import com.group4.group4.entity.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;

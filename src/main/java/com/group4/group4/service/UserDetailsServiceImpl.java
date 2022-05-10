@@ -1,5 +1,7 @@
-package com.group4.group4.sevice;
+package com.group4.group4.service;
 
+import com.group4.group4.entity.UserEntity;
+import com.group4.group4.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,7 +15,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     IUserRepository iUserRepository;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserEntity userEntity = iUserRepository.findByUsername(username);
+        UserEntity userEntity = iUserRepository.findByEmail(username);
         if (username == null){
             throw new UsernameNotFoundException("User not found with username: " + username);
         }
