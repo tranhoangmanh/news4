@@ -12,7 +12,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "news")
+@Table(name = "NEWS")
 @Entity
 public class NewsEntity {
     @Id
@@ -22,8 +22,8 @@ public class NewsEntity {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "detail")
-    private String detail;
+    @Column(name = "preview")
+    private String preview;
 
     @Column(name = "image_name")
     private String imageName;
