@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th5 10, 2022 lúc 12:02 PM
+-- Thời gian đã tạo: Th5 10, 2022 lúc 03:49 PM
 -- Phiên bản máy phục vụ: 10.4.19-MariaDB
 -- Phiên bản PHP: 8.0.6
 
@@ -45,7 +45,8 @@ CREATE TABLE `news` (
   `content` varchar(255) DEFAULT NULL,
   `detail` varchar(255) DEFAULT NULL,
   `image_name` varchar(255) DEFAULT NULL,
-  `title` varchar(255) DEFAULT NULL
+  `title` varchar(255) DEFAULT NULL,
+  `preview` varchar(255) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
