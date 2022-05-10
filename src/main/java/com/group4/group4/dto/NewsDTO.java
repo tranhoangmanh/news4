@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -12,5 +14,8 @@ import lombok.NoArgsConstructor;
 public class NewsDTO {
     private long id;
     private String title;
-    private String detail;
+    private String preview;
+    private String content;
+    private String imageName;
+    private List<Long> commentIds;
 }
