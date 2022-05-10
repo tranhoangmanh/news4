@@ -81,9 +81,9 @@ public class HomeController {
         listRoleUser.add(roleUser);
         List<RoleEntity> listRoleMentor = new ArrayList<>();
         listRoleMentor.add(roleMentor);
-//        iUserRepository.save(new UserEntity(null,"admin@gmail.com",passwordEncoder.encode("123456"),null,listRoleAdmin));
-//        iUserRepository.save(new UserEntity(null,"user@gmail.com",passwordEncoder.encode("123456"),null,listRoleUser));
-//        iUserRepository.save(new UserEntity(null,"mentor@gmail.com",passwordEncoder.encode("123456"),null,listRoleMentor));
+        iUserRepository.save(new UserEntity(null,"admin@gmail.com",passwordEncoder.encode("123456"),null,listRoleAdmin));
+        iUserRepository.save(new UserEntity(null,"user@gmail.com",passwordEncoder.encode("123456"),null,listRoleUser));
+        iUserRepository.save(new UserEntity(null,"mentor@gmail.com",passwordEncoder.encode("123456"),null,listRoleMentor));
         return null;
     }
 }
