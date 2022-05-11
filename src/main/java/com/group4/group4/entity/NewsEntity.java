@@ -33,4 +33,7 @@ public class NewsEntity {
 
     @OneToMany(mappedBy = "newsEntity")
     private List<CommentEntity> commentList;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private CategoryEntity categoryEntity;
 }

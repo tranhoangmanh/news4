@@ -40,7 +40,7 @@ public class NewsService implements IBaseService<NewsDTO> {
         return false;
     }
 
-    public NewsDTO entityToModel(NewsEntity entity){
+    public NewsDTO entityToDto(NewsEntity entity){
         NewsDTO dto = new NewsDTO();
         dto.setId(entity.getId());
         dto.setTitle(entity.getTitle());
