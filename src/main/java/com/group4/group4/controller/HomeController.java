@@ -69,7 +69,7 @@ public class HomeController {
         iUserRepository.save(new UserEntity(null,request.getEmail(),passwordEncoder.encode(request.getPassword()),null,listRoleUser));
         return request;
     }
-
+    @CrossOrigin(origins = "http://10.0.0.96")
     @GetMapping("/add")
     public String addNewUser(){
         RoleEntity roleAdmin = iRoleRepository.getById(1L);
