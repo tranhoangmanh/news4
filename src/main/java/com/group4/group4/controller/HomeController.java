@@ -11,6 +11,7 @@ import com.group4.group4.repository.IRoleRepository;
 import com.group4.group4.repository.IUserRepository;
 import com.group4.group4.service.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -69,7 +70,7 @@ public class HomeController {
         iUserRepository.save(new UserEntity(null,request.getEmail(),passwordEncoder.encode(request.getPassword()),null,listRoleUser));
         return request;
     }
-    @CrossOrigin(origins = "http://10.0.0.96")
+//    @CrossOrigin(origins = "http://10.0.0.96:3000")
     @GetMapping("/add")
     public String addNewUser(){
         RoleEntity roleAdmin = iRoleRepository.getById(1L);
@@ -85,5 +86,9 @@ public class HomeController {
         iUserRepository.save(new UserEntity(null,"user@gmail.com",passwordEncoder.encode("123456"),null,listRoleUser));
         iUserRepository.save(new UserEntity(null,"mentor@gmail.com",passwordEncoder.encode("123456"),null,listRoleMentor));
         return null;
+    }
+    @GetMapping("/test")
+    public ResponseEntity<?> testCors(){
+        return ResponseEntity.ok().body(new LoginRequest("ahihi","ahoho"));
     }
 }
