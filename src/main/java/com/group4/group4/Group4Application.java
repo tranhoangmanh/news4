@@ -14,7 +14,7 @@ public class Group4Application {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://35.194.153.94:8080","http://10.0.0.96:3000")
+                        .allowedOrigins("http://35.194.153.94","http://10.0.0.96")
                         .allowCredentials(true)
                         .allowedMethods("GET", "POST", "DELETE", "PUT", "PATCH", "OPTIONS");
             }
