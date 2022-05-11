@@ -87,6 +87,7 @@ public class HomeController {
         iUserRepository.save(new UserEntity(null,"mentor@gmail.com",passwordEncoder.encode("123456"),null,listRoleMentor));
         return null;
     }
+    @CrossOrigin(origins = "http://10.0.0.96:3000")
     @GetMapping("/test")
     public ResponseEntity<?> testCors(){
         return ResponseEntity.ok().body(new LoginRequest("ahihi","ahoho"));
